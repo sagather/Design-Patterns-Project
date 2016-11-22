@@ -3,5 +3,8 @@
  */
 package airtravel;
 
-public class SeatClass {
+public enum SeatClass {
+
+    FIRST, BUSINESS, ECONOMY;
+
 }
