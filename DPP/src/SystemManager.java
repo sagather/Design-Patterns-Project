@@ -5,6 +5,10 @@ import airtravel.*;
 
 public class SystemManager
 {
+        public SystemManager(){
+
+        }
+
         public void createAirport(){
 
         }
