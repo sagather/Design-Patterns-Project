@@ -1,3 +1,5 @@
+package airtravel;
+
 public class Flight{
 
 }
