@@ -8,6 +8,21 @@ public class FlightSection {
     private ArrayList<Seat> seat;
     private String class;
 
+    public boolean hasAvailableSeats(){
+
+        return false;
+
+    }
+
+    public void bookSeat(){
+
+    }
+
+    public String toString(){
+
+        return this.class;
+
+    }
 
 
 }
