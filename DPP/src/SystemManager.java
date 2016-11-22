@@ -29,4 +29,8 @@ public class SystemManager
 
         }
 
+        public void displaySystemDetails(){
+
+        }
+
 }
