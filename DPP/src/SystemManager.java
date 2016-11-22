@@ -7,6 +7,11 @@ public class SystemManager
 {
         public SystemManager(){
 
+                createAirline();
+                createAirport();
+                createFlight();
+                createSection();
+
         }
 
         public void createAirport(){
