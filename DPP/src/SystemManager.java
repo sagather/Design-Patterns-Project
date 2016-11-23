@@ -5,36 +5,43 @@ import airtravel.*;
 
 public class SystemManager
 {
+
+        private Airline airline;
+        private Airport airport;
+        private Flight flight;
+        private FlightSection section;
+
         public SystemManager(){
 
-                createAirline();
-                createAirport();
-                createFlight();
-                createSection();
+                //createAirline();
+                //createAirport();
+                //createFlight();
+                //createSection();
 
         }
 
-        public void createAirport(){
+        public void createAirport(String iAirport){
 
         }
 
-        public void createAirline(){
+        public void createAirline(String iAirline){
 
         }
 
-        public void createFlight(){
+        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month,
+                                 int day, String iFlightNumber){
 
         }
 
-        public void createSection(){
+        public void createSection(String iAirline, String iFlightNumber, int iRow, int iPassengers, SeatClass iClass){
 
         }
 
-        public void findAvailableFlights(){
+        public void findAvailableFlights(String iDeparture, String iArrival){
 
         }
 
-        public void bookSeat(){
+        public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
 
         }
 

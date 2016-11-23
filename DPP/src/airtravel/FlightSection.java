@@ -3,10 +3,12 @@
  */
 package airtravel;
 
+import java.util.*;
+
 public class FlightSection {
 
     private ArrayList<Seat> seat;
-    private String class;
+    private String class3;
 
     public boolean hasAvailableSeats(){
 
@@ -20,8 +22,8 @@ public class FlightSection {
 
     public String toString(){
 
-        return this.class;
-        //lol
+        return this.class3;
+
 
     }
 
