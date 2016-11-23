@@ -8,21 +8,23 @@ import java.util.*;
 public class FlightSection {
 
     private ArrayList<Seat> seat;
-    private String class3;
+    private SeatClass seatClass;
 
     public boolean hasAvailableSeats(){
 
-        return false;
+        return seat.size() > 0;
 
     }
 
     public void bookSeat(){
 
+
+
     }
 
     public String toString(){
 
-        return this.class3;
+        return "";
 
 
     }

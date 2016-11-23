@@ -9,6 +9,13 @@ public class Seat {
     private char seat;
     private String assignment;
 
+    public Seat(int iRow, char iSeat){
+
+        this.row = iRow;
+        this.seat = iSeat;
+
+    }
+
     public String toString(){
 
         this.assignment = "Seat: " + row + seat;
