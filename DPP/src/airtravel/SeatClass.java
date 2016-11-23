@@ -4,6 +4,6 @@
 package airtravel;
 public enum SeatClass {
 
-    FIRST, BUSINESS, ECONOMY;
+    FIRST, BUSINESS, ECONOMY
 
 }

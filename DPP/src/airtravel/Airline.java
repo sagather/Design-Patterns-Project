@@ -1,3 +1,5 @@
+package airtravel;
+
 /**
  * Created by Megan Ostby on 11/22/2016.
  */
