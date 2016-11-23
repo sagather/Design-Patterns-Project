@@ -2,8 +2,8 @@
  * Created by Megan Ostby on 11/22/2016.
  */
 package airtravel;
-public enum SeatClass {
+public class SeatClass {//enum?
 
-    FIRST, BUSINESS, ECONOMY
+    //FIRST, BUSINESS, ECONOMY
 
 }

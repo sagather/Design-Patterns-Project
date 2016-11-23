@@ -5,8 +5,8 @@ package airtravel;
 
 public class FlightSection {
 
-    private ArrayList<Seat> seat;
-    private String class;
+    //private ArrayList<Seat> seat;
+    //private String class;
 
 
 
