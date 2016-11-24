@@ -5,6 +5,7 @@ package airtravel;
 //TODO: Megan
 public class Airport
 {
+    //Test
     String name;
 
     //Objects from this class represent airports
