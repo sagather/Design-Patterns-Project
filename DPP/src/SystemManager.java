@@ -21,15 +21,19 @@ public class SystemManager
         }
 
         public void createAirport(String iAirport){
-
+                //TODO: Megan
+                //implement Airport class to create an airport
         }
 
         public void createAirline(String iAirline){
-
+                //TODO: Megan
+                //implement airline class to create an airline
         }
 
         public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month,
                                  int day, String iFlightNumber){
+                //TODO: Megan
+                //implement flight class and given information to create a flight
 
         }
 
