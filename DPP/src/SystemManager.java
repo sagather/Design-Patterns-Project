@@ -3,8 +3,6 @@
  */
 import airtravel.*;
 
-//Megan, you getting this push?
-
 public class SystemManager
 {
 //Test
@@ -39,7 +37,9 @@ public class SystemManager
 
         }
 
-        public void createSection(String iAirline, String iFlightNumber, int iRow, int iPassengers, SeatClass iClass){
+        public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
+
+                this.section = new FlightSection(iRow, iCols, iClass);
 
         }
 
@@ -48,6 +48,8 @@ public class SystemManager
         }
 
         public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
+
+
 
         }
 
