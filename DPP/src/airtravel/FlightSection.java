@@ -13,9 +13,15 @@ public class FlightSection {
 
     public FlightSection(int seatRows, int seatCols, SeatClass isClass){
 
-        this.rows = seatRows;
-        this.cols = seatCols;
-        this.sClass = isClass;
+        for(int i = 0; i < seatRows i++){
+
+            for(char j = 'a'; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
+
+                seats.add(new Seat(i, j));
+
+            }
+
+        }
 
     }
 
