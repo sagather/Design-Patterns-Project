@@ -39,7 +39,7 @@ public class SystemManager
 
         public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
 
-                this.section = new FlightSection(iRow, iCols, iClass);
+                this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
 
         }
 

@@ -11,7 +11,13 @@ public class FlightSection {
     private int rows;
     private int cols;
 
-    public FlightSection(int seatRows, int seatCols, SeatClass isClass){
+    public FlightSection(Airline iAirline, String iFlightNumber, int seatRows, int seatCols, SeatClass isClass){
+
+        if(seatRows > 100 || seatCols > 10 || seatRows < 1 || seatCols < 1){
+
+            System.out.println("Invalid number of rows and cols to create a flight");
+
+        }
 
         for(int i = 0; i < seatRows i++){
 
@@ -28,6 +34,12 @@ public class FlightSection {
     public boolean hasAvailableSeats(){
 
         return seats.size()>0;
+
+    }
+
+    public String toString(){
+
+        return "For section " + sClass + " there is " + seats.toString();
 
     }
 
