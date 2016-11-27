@@ -3,14 +3,14 @@
  */
 package airtravel;
 import java.util.*;
-//Test
+
 public class FlightSection {
 
-    private ArrayList<Seat> seats;
+    private ArrayList<Seat> seats;  //FlightSection holds an array of Seats
     private SeatClass sClass;
     private int rows;
     private int cols;
-    FlightSection dumm;
+    FlightSection dumm;         //returns a null FlightSection after a bad number of seat rows and columns
 
     public FlightSection(Airline iAirline, String iFlightNumber, int seatRows, int seatCols, SeatClass isClass){
 
@@ -35,7 +35,7 @@ public class FlightSection {
 
     public boolean hasAvailableSeats(){
 
-        return seats.size()>0;
+        return seats.size()>0;  //return false if no available seats.. hang on, I'll look into this some more when I can compile and run
 
     }
 
