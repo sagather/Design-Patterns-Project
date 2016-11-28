@@ -18,10 +18,11 @@ public class FlightSection {
 
             System.out.println("Invalid number of rows and cols to create a flight");
             return dumm;
+            //Here, stuff needs to be assigned to return null or an exception thrown
 
         }
 
-        for(int i = 0; i < seatRows i++){
+        for(int i = 0; i < seatRows; i++){
 
             for(char j = 'a'; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
 
