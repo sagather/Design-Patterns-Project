@@ -10,15 +10,13 @@ public class FlightSection {
     private SeatClass sClass;
     private int rows;
     private int cols;
-    FlightSection dumm;
 
     public FlightSection(Airline iAirline, String iFlightNumber, int seatRows, int seatCols, SeatClass isClass){
 
         if(seatRows > 100 || seatCols > 10 || seatRows < 1 || seatCols < 1){
 
             System.out.println("Invalid number of rows and cols to create a flight");
-            return dumm;
-            //Here, stuff needs to be assigned to return null or an exception thrown
+            throw new RuntimeException();
 
         }
 
