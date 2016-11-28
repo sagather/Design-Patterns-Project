@@ -2,11 +2,13 @@
  * Created by Megan Ostby on 11/22/2016.
  */
 import airtravel.*;
+import java.util.*;
 
 public class SystemManager
 {
 //Test
         private ArrayList<Airport> airports;
+        private FlightSection section;
 
         public SystemManager(){
 
