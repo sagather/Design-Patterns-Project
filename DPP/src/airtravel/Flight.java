@@ -14,6 +14,12 @@ public class Flight
     //In a flight
         //There can be only one flight section of a particular seat class
         //This will be determined by the enumerator from Sams section
+    
+    public Flight(){
+    	
+    	//create a flight
+    	
+    }
 
 
     public String toSting()
