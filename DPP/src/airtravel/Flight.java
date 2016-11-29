@@ -37,8 +37,10 @@ public class Flight
 
     public String toString()
     {
-        String flight = "";
+        String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year + 
+        		" arriving at " + this.arrivalCity + ", flight number " + this.ID;
 
         return flight;
     }
+}
 }
