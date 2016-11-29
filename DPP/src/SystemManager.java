@@ -9,9 +9,9 @@ import java.util.*;
 public class SystemManager
 {
 //Test
-        private ArrayList<Airport> airports;
-        private ArrayList<Airline> airlines;
-        private ArrayList<Flight> flights;
+        private ArrayList<Airport> airports = new ArrayList<Airport>();
+        private ArrayList<Airline> airlines = new ArrayList<Airline>();
+        private ArrayList<Flight> flights = new ArrayList<Flight>();
         private FlightSection section;
 
         public SystemManager(){
