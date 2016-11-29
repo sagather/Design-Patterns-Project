@@ -82,9 +82,28 @@ public class SystemManager
 
         public void displaySystemDetails(){
         	
+        	System.out.println("\nAirports:\n");
+        	
         	for(Airport port : airports){
         		
         		System.out.println(port.toString());
+        		
+        	}
+        	
+        	System.out.println("\nAirlines:\n");
+        	
+        	for(Airline line : airlines){
+        		
+        		System.out.println(line.toString());
+        		
+        		
+        	}
+        	
+        	System.out.println("\nFlights:\n");
+        	
+        	for(Flight fly : flights){
+        		
+        		System.out.println(fly.toString());
         		
         	}
 
