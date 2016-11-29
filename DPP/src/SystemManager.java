@@ -67,6 +67,15 @@ public class SystemManager
         public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
 
                 this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
+                for(Flight fly : flights){
+                	
+                	if(fly.getID().equals(iFlightNumber)){
+                		
+                		fly.addFlightSection(section);
+                		
+                	}
+                	
+                }
 
         }
 
