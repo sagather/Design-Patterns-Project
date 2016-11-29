@@ -42,5 +42,7 @@ public class Flight
 
         return flight;
     }
-}
+    
+    //TODO get methods for destination and arrival airports
+
 }
