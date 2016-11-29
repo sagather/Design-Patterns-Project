@@ -28,13 +28,15 @@ public class FlightSection {
         		for(char j = 'a'; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
 
         			seats.add(new Seat(i, j));
-        			this.airline = iAirline;
-        			this.flightNumber = iFlightNumber;
-        			this.sClass = isClass;
 
         		}
 
         	}
+        	
+			this.airline = iAirline;
+			this.flightNumber = iFlightNumber;
+			this.sClass = isClass;
+
         	
         }
         
@@ -60,8 +62,13 @@ public class FlightSection {
     
     public void bookSeat(){
     	
+    
     	
+    }
+    
+    public String getID(){
     	
+    	return this.flightNumber;
     }
 
 }
