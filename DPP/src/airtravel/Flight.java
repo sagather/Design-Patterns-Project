@@ -44,5 +44,6 @@ public class Flight
     }
     
     //TODO get methods for destination and arrival airports
+    //TODO addSection, will simply add a new section to your arraylist
 
 }
