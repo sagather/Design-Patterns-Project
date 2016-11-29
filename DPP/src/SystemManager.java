@@ -70,12 +70,37 @@ public class SystemManager
 
         }
 
-        public void findAvailableFlights(String iDeparture, String iArrival){
+        public Flight findAvailableFlights(String iDeparture, String iArrival){
+        	
+        	try{
+        	
+        		for(Flight flight : flights){
+        			
+        			if(iDeparture.equals(flight.getDeparture())){
+        			
+        				if(iArrival.equals(flight.getArrival())){
+        				
+        					return flight;
+        				
+        				}
+        			
+        			}
+        		
+        		}
+        		
+        		throw new IllegalArgumentException();
+        		
+        	}
+        	
+        	catch(IllegalArgumentException e){
+        		
+        		System.out.println("There are no flights with the destination and arrival airport combination provided");
+        		
+        	}
 
         }
 
         public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
-
 
 
         }
@@ -106,8 +131,7 @@ public class SystemManager
         		System.out.println(fly.toString());
         		
         	}
-
+        	
         }
 
 }
-
