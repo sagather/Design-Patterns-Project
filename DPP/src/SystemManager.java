@@ -12,11 +12,6 @@ public class SystemManager
 
         public SystemManager(){
 
-                //createAirline();
-                //createAirport();
-                //createFlight();
-                //createSection();
-
         }
 
         public void createAirport(String iAirport){
@@ -53,7 +48,14 @@ public class SystemManager
         }
 
         public void displaySystemDetails(){
+        	
+        	for(Airport port : airports){
+        		
+        		System.out.println(port.toString());
+        		
+        	}
 
         }
 
 }
+
