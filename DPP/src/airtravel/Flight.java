@@ -6,9 +6,8 @@ package airtravel;
 import java.util.ArrayList;
 //Test
 //TODO: Megan
-public class Flight
-{
-    //ArrayList<FlightSection> section;
+public class Flight {
+    ArrayList<FlightSection> section;
     private String ID;
     private String airlineName;
     private String departureCity;
@@ -20,11 +19,10 @@ public class Flight
     //Maintains information about flights
     //A flight can be associated with 0 or more flight sections
     //In a flight
-        //There can be only one flight section of a particular seat class
-        //This will be determined by the enumerator from Sams section
-    
-    public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, String flightNumber)
-    {
+    //There can be only one flight section of a particular seat class
+    //This will be determined by the enumerator from Sams section
+
+    public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, String flightNumber) {
         this.ID = flightNumber;
         this.airlineName = airlineName;
         this.departureCity = departCity;
@@ -37,12 +35,44 @@ public class Flight
 
     public String toString()
     {
-        String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year + 
+        String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year +
         		" arriving at " + this.arrivalCity + ", flight number " + this.ID;
 
         return flight;
     }
-    
+
+    public String getDepartureCity()
+    {
+        return this.departureCity;
+    }
+
+    public String getArrivalCity()
+    {
+        return this.arrivalCity;
+    }
+
+    public String getID()
+    {
+        return this.ID;
+    }
+
+    public void addFlightSection(FlightSection fs)
+    {
+        section.add(fs);
+    }
+
+    public FlightSection getFlightSection(String flightID)
+    {
+        for(int i = 0; i < section.size();i++)
+        {
+            if(section.get(i).getID().equals(flightID))
+            {
+                return section.get(i);
+            }
+        }
+    }
+
+
     //TODO get methods for destination and arrival airports
     //TODO addSection, will simply add a new section to your arraylist
 
