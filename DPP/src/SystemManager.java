@@ -2,12 +2,16 @@
  * Created by Megan Ostby on 11/22/2016.
  */
 import airtravel.*;
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import java.util.*;
 
 public class SystemManager
 {
 //Test
         private ArrayList<Airport> airports;
+        private ArrayList<Airline> airlines;
+        private ArrayList<Flight> flights;
         private FlightSection section;
 
         public SystemManager(){
@@ -15,20 +19,49 @@ public class SystemManager
         }
 
         public void createAirport(String iAirport){
-                //TODO: Megan
-                //implement Airport class to create an airport
+                try
+                {
+                        if (iAirport.length() > 3 || iAirport.length() < 3) {
+                                //Must be alphabetic characters
+                                throw new IllegalArgumentException("Airport name must be exactly 3 characters long!");
+                        }
+                        if (!iAirport.matches("[a-zA-Z]+")) {
+                                throw new IllegalArgumentException("Airport name must only contain alphabetic characters. ");
+                        }
+
+                        Airport airport = new Airport(iAirport);
+                        airports.add(airport);
+                }
+                catch (IllegalArgumentException e)
+                {
+                System.out.println("This airport was not created due an issue with the name.");
+                }
         }
 
         public void createAirline(String iAirline){
-                //TODO: Megan
-                //implement airline class to create an airline
+                try
+                {
+                        if (iAirline.length() > 6) {
+                                throw new IllegalArgumentException("Airline name must be less than 6 characters long!");
+                        }
+                        for(Airline sAirline:airlines)
+                        {
+                                if (sAirline.getName().equals(iAirline)) {
+                                        throw new IllegalArgumentException("Airline name must not be the same as another airline name.");
+                                }
+                        }
+                        Airline airline = new Airline(iAirline);
+                        airlines.add(airline);
+                }
+                catch (IllegalArgumentException e)
+                {
+                        System.out.println("This airline was not created due an issue with the name.");
+                }
         }
 
-        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month,
-                                 int day, String iFlightNumber){
-                //TODO: Megan
-                //implement flight class and given information to create a flight
-
+        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month, int day, String iFlightNumber){
+                Flight flight = new Flight(iLine,iDeparture,iArrival,year,month,day,iFlightNumber);
+                flights.add(flight);
         }
 
         public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
