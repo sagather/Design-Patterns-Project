@@ -10,6 +10,8 @@ public class FlightSection {
     private SeatClass sClass;
     private int rows;
     private int cols;
+    private String airline;
+    private String flightNumber;
 
     public FlightSection(String iAirline, String iFlightNumber, int seatRows, int seatCols, SeatClass isClass){
 
@@ -26,6 +28,9 @@ public class FlightSection {
         		for(char j = 'a'; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
 
         			seats.add(new Seat(i, j));
+        			this.airline = iAirline;
+        			this.flightNumber = iFlightNumber;
+        			this.sClass = isClass;
 
         		}
 
@@ -52,6 +57,11 @@ public class FlightSection {
         return "For section " + sClass + " there is " + seats.toString();
 
     }
-
+    
+    public void bookSeat(){
+    	
+    	
+    	
+    }
 
 }
