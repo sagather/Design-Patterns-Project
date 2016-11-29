@@ -7,7 +7,7 @@ import java.util.ArrayList;
 //Test
 //TODO: Megan
 public class Flight {
-    ArrayList<FlightSection> section;
+    private ArrayList<FlightSection> section = new ArrayList<FlightSection>();
     private String ID;
     private String airlineName;
     private String departureCity;
@@ -70,10 +70,8 @@ public class Flight {
                 return section.get(i);
             }
         }
+        
+        throw new IllegalArgumentException();
     }
-
-
-    //TODO get methods for destination and arrival airports
-    //TODO addSection, will simply add a new section to your arraylist
 
 }
