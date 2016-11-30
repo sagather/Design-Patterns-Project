@@ -69,12 +69,29 @@ public class FlightSection {
 
     }
     
-    public void bookSeat(int iRow, int iCol, SeatClass iClass){
+    public void bookSeat(int iRow, char iCol, SeatClass iClass){
+    	
+    	int i = 0;
     	
     	for(Seat s : seats){
     		
-    		s.setAssigned();
+    		if(s.getRow() == iRow){
+    			
+    			if(s.getCol() == iCol){
+    				
+    				s.setAssigned();
+    				System.out.println("You successfully booked " + this.sClass + ", seat " + iRow + iCol);
+    				i++;
+    				
+    			}
+    			
+    		}
     		
+    	}
+    	
+    	if(i == 0){
+    		
+    		throw new IllegalArgumentException();
     	}
     	
     }
