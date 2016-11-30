@@ -73,5 +73,10 @@ public class Flight {
         
         throw new IllegalArgumentException();
     }
+    
+    public int sectionSize(){
+    	
+    	return section.size();
+    }
 
 }
