@@ -145,7 +145,7 @@ public class SystemManager
         					}
         					catch(IllegalArgumentException e){
         						
-        						System.out.println("Looks like that seat doesn't exist or it's not booked yet");
+        						System.out.println("Looks like that seat doesn't exist or it's booked already");
         						
         					}
 
