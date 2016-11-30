@@ -11,6 +11,11 @@ public class Airport
             this.name = name;
     }
 
+    public String getName()
+    {
+        return this.name;
+    }
+
     public String toString()
     {
         String airport = name;

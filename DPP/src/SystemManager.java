@@ -29,12 +29,19 @@ public class SystemManager
                                 throw new IllegalArgumentException("Airport name must only contain alphabetic characters. ");
                         }
 
+                        for(Airport sAirport:airports)
+                        {
+                            if (sAirport.getName().equals(iAirport)) {
+                            throw new IllegalArgumentException("Airport name must not be the same as another airport name.");
+                            }
+                        }
                         Airport airport = new Airport(iAirport);
+                        System.out.println("Creation of Airport " + iAirport + " was successful.");
                         airports.add(airport);
                 }
                 catch (IllegalArgumentException e)
                 {
-                System.out.println("This airport was not created due an issue with the name.");
+                System.out.println("Airport: "+ iAirport + " This airport was not created due an issue with the name. " + e.getMessage());
                 }
         }
 
@@ -51,11 +58,12 @@ public class SystemManager
                                 }
                         }
                         Airline airline = new Airline(iAirline);
+                    System.out.println("Creation of Airline " + iAirline + " was successful.");
                         airlines.add(airline);
                 }
                 catch (IllegalArgumentException e)
                 {
-                        System.out.println("This airline was not created due an issue with the name.");
+                        System.out.println("Airline: "+ iAirline + " This airline was not created due an issue with the name. " + e.getMessage());
                 }
         }
 

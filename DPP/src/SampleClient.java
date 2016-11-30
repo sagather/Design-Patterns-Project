@@ -5,9 +5,7 @@ public class SampleClient {
     /**
      * @param args
      */
-//Test
     public static void main(String[] args) {
-
         SystemManager res = new SystemManager();
         res.createAirport("DEN");
         res.createAirport("DFW");
