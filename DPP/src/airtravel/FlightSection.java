@@ -6,7 +6,7 @@ import java.util.*;
 //Test
 public class FlightSection {
 
-    private ArrayList<Seat> seats;
+    private ArrayList<Seat> seats = new ArrayList<Seat>();
     private SeatClass sClass;
     private int rows;
     private int cols;
