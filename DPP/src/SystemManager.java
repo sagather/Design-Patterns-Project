@@ -120,7 +120,31 @@ public class SystemManager
 
         public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
         	
+        	try{
+        		
+        		for(Flight fly : flights){
+        			
+        			if(fly.getID().equals(iFlight)){
+        				
+        				this.section = fly.getFlightSection(fly.getID());
+        				
+        				if(section.hasAvailableSeats()){
+        					
+        					
+        					
+        				}
+        				
+        			}
+        			
+        		}
+        		
+        	}
         	
+        	catch(IllegalArgumentException e){
+        		
+        		System.out.println("Something's not right here, bro.");
+        		
+        	}
 
         }
 
