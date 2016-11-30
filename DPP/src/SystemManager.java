@@ -130,7 +130,17 @@ public class SystemManager
         				
         				if(section.hasAvailableSeats()){
         					
-        					
+        					try{
+        						
+            					section.bookSeat(iRow, iSeat, iClass);
+        						
+        					}
+        					catch(IllegalArgumentException e){
+        						
+        						System.out.println("Looks like that seat doesn't exist or it's not booked yet");
+        						
+        					}
+
         					
         				}
         				
