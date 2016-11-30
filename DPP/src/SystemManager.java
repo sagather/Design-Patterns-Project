@@ -2,7 +2,6 @@
  * Created by Megan Ostby on 11/22/2016.
  */
 import airtravel.*;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.util.*;
 
@@ -67,29 +66,135 @@ public class SystemManager
                 }
         }
 
-        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month, int day, String iFlightNumber){
-                Flight flight = new Flight(iLine,iDeparture,iArrival,year,month,day,iFlightNumber);
-                flights.add(flight);
+        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month, int day, String iFlightNumber)
+        {
+            Boolean airlineGood = false;
+            Boolean departureGood = false;
+            Boolean arrivalGood = false;
+            Boolean dayGood = false;
+            Boolean monthGood = false;
+
+            try {
+                for(Airline sAirline:airlines)
+                {
+                    if (sAirline.getName().equals(iLine)) {
+                        airlineGood = true;
+                    }
+                }
+                //invalid airports
+                for(Airport sAirport:airports)
+                {
+                    if (sAirport.getName().equals(iDeparture))
+                    {
+                        departureGood =true;
+                    }
+                }
+                for(Airport sAirport:airports)
+                {
+                    if (sAirport.getName().equals(iArrival)) {
+                        arrivalGood = true;
+                    }
+                }
+                //invalid dates
+                if(day >= 1 && day <= 31)
+                {
+                    dayGood = true;
+                }
+
+                if(month >= 1 && month <= 12)
+                {
+                    monthGood = true;
+                }
+                if(airlineGood && arrivalGood  && departureGood && dayGood && monthGood) {
+                    Flight flight = new Flight(iLine, iDeparture, iArrival, year, month, day, iFlightNumber);
+                    System.out.println("Creation of Flight " + iFlightNumber + " was successful.");
+                    flights.add(flight);
+                }
+                else
+                {
+                    if(!airlineGood)
+                    {
+                        throw new IllegalArgumentException("Airline must match an existing airline name!");
+                    }
+                    else if(!departureGood)
+                    {
+                        throw new IllegalArgumentException("Departure city must match an existing airport name!");
+                    }
+                    else if(!arrivalGood)
+                    {
+                        throw new IllegalArgumentException("Arrival city must match an existing airport name!");
+                    }
+                    else if(!dayGood)
+                    {
+                        throw new IllegalArgumentException("Day must be an actual calender value!");
+                    }
+                    else if(!monthGood)
+                    {
+                        throw new IllegalArgumentException("Month must be an actual calender value!");
+                    }
+                }
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Flight: "+ iFlightNumber + " This flight was not created. " + e.getMessage());
+            }
         }
 
-        public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
+        public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass)
+        {
+            Boolean airlineGood = false;
+            Boolean classGood = false;
 
-                this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
-                for(Flight fly : flights){
-                	
-                	if(fly.getID().equals(iFlightNumber)){
-                		
-                		fly.addFlightSection(section);
-                		
-                	}
-                	
+            try {
+                for(Airline sAirline:airlines)
+                {
+                    if (sAirline.getName().equals(iAirline))
+                    {
+                        airlineGood = true;
+                    }
                 }
+
+                if(airlineGood) {
+                    this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
+                    for (Flight fly : flights) {
+
+                        if (fly.getID().equals(iFlightNumber))
+                        {
+                            for(int i = 0; i <= fly.sectionSize(); i++) {
+                                if (fly.sectionSize() == 0 || fly.getFlightSection(iClass) == null)
+                                {
+                                    classGood = true;
+                                }
+                            }
+                            if(classGood) {
+                                System.out.println("Creation of section " + iClass + " was successful.");
+                                fly.addFlightSection(section);
+
+                            }
+
+                        }
+
+                    }
+                }
+
+                    if(!airlineGood) {
+                        throw new IllegalArgumentException("Airline must match an existing airline name!");
+                    }
+                    else if(!classGood)
+                    {
+                        throw new IllegalArgumentException("Flight cannot have two of the same section!");
+                    }
+            }
+            catch (IllegalArgumentException e)
+            {
+                System.out.println("Section: "+ iClass + " This class was not created for this flight. " + e.getMessage());
+            }
 
         }
 
         public void findAvailableFlights(String iDeparture, String iArrival){
         	
-        	System.out.println("\nAvailable Flights: \n");
+        	System.out.print("\nAvailable Flights: ");
         	int i = 0;
         	
         	try{
@@ -100,7 +205,7 @@ public class SystemManager
         			
         				if(iArrival.equals(flight.getArrivalCity())){
         				
-        					System.out.println(flight.toString());
+        					System.out.print(flight.toString());
         					i++;
         				
         				}
@@ -126,41 +231,43 @@ public class SystemManager
 
         }
 
-        public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
-        	
+        public void bookSeat(String iAirline, String iFlight, SeatClass iClass, int iRow, char iSeat){
+        	Boolean airlineGood = false;
         	try{
-        		
-        		for(Flight fly : flights){
-        			
-        			if(fly.getID().equals(iFlight)){
-        				
-        				this.section = fly.getFlightSection(fly.getID());
-        				
-        				if(section.hasAvailableSeats()){
-        					
-        					try{
-        						
-            					section.bookSeat(iRow, iSeat, iClass);
-        						
-        					}
-        					catch(IllegalArgumentException e){
-        						
-        						System.out.println("Looks like that seat doesn't exist or it's booked already");
-        						
-        					}
+                for(Airline sAirline:airlines)
+                {
+                    if (sAirline.getName().equals(iAirline))
+                    {
+                        airlineGood = true;
+                    }
+                }
+                if(airlineGood) {
+                    for (Flight fly : flights) {
 
-        					
-        				}
-        				
-        			}
-        			
-        		}
+                        if (fly.getID().equals(iFlight)) {
+
+                            this.section = fly.getFlightSection(iClass);
+
+                            if (section.hasAvailableSeats()) {
+                                    section.bookSeat(iRow, iSeat, iClass);
+                            }
+
+                        } else {
+                            throw new IllegalArgumentException("Flight ID must match!");
+                        }
+
+                    }
+                }
+                else
+                {
+                    throw new IllegalArgumentException("Airline name is not valid.");
+                }
         		
         	}
         	
         	catch(IllegalArgumentException e){
         		
-        		System.out.println("Something's not right here, bro.");
+        		System.out.println("Could not book seat. " + e.getMessage());
         		
         	}
 

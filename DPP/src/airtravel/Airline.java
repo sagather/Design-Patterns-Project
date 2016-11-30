@@ -1,7 +1,4 @@
 package airtravel;
-
-import java.util.HashMap;
-//Test
 /**
  * Created by Megan Ostby on 11/22/2016.
  */

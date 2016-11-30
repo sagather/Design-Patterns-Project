@@ -8,8 +8,6 @@ public class FlightSection {
 
     private ArrayList<Seat> seats = new ArrayList<Seat>();
     private SeatClass sClass;
-    private int rows;
-    private int cols;
     private String airline;
     private String flightNumber;
 
@@ -70,41 +68,41 @@ public class FlightSection {
     }
     
     public void bookSeat(int iRow, char iCol, SeatClass iClass){
-    	
-    	int i = 0;
-    	
-    	for(Seat s : seats){
-    		
-    		if(s.getRow() == iRow){
-    			
-    			if(s.getCol() == iCol){
-    				
-    				s.setAssigned();
-    				System.out.println("You successfully booked " + this.sClass + ", seat " + iRow + iCol);
-    				i++;
-    				
-    			}
-    			
-    		}
-    		
-    	}
-    	
-    	if(i == 0){
-    		
-    		throw new IllegalArgumentException();
-    	}
+
+        try {
+            int i = 0;
+
+            for (Seat s : seats) {
+
+                if (s.getRow() == iRow) {
+
+                    if (s.getCol() == Character.toLowerCase(iCol)  && !s.isAssigned()){
+
+                        s.setAssigned();
+                        System.out.println("You successfully booked " + this.sClass + ", seat " + iRow + iCol);
+                        i++;
+
+                    }
+
+                }
+
+            }
+            if (i == 0) {
+
+                throw new IllegalArgumentException(iRow + "" + iCol+ " was not available. ");
+            }
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Seat was not booked. " + e.getMessage());
+        }
     	
     }
 
     public String toString(){
 
-        return "For section " + sClass + " there is " + seats.toString();
+        return " For section " + sClass + " there is " + seats.toString();
 
-    }
-    
-    public String getID(){
-    	
-    	return this.flightNumber;
     }
 
     public boolean classCompare(SeatClass iClass){

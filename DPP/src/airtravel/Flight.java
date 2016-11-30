@@ -16,12 +16,6 @@ public class Flight {
     private int month;
     private int day;
 
-    //Maintains information about flights
-    //A flight can be associated with 0 or more flight sections
-    //In a flight
-    //There can be only one flight section of a particular seat class
-    //This will be determined by the enumerator from Sams section
-
     public Flight(String airlineName, String departCity, String arriveCity, int year, int month, int day, String flightNumber) {
         this.ID = flightNumber;
         this.airlineName = airlineName;
@@ -32,11 +26,16 @@ public class Flight {
         this.day = day;
     }
 
-
     public String toString()
     {
         String flight = "Airline " + this.airlineName + ", departing from " + this.departureCity + ", on " + this.month + ", " + this.day + " " + this.year +
-        		" arriving at " + this.arrivalCity + ", flight number " + this.ID;
+        		" arriving at " + this.arrivalCity + ", flight number " + this.ID + ".\n";
+
+        for(FlightSection sect : section){
+
+            flight += sect.toString();
+
+        }
 
         return flight;
     }
@@ -61,17 +60,19 @@ public class Flight {
         section.add(fs);
     }
 
-    public FlightSection getFlightSection(String flightID)
+    public FlightSection getFlightSection(SeatClass iClass)
     {
-        for(int i = 0; i < section.size();i++)
-        {
-            if(section.get(i).getID().equals(flightID))
-            {
-                return section.get(i);
+        for(FlightSection sect : section){
+
+            if(sect.classCompare(iClass)){
+
+                return sect;
+
             }
+
         }
         
-        throw new IllegalArgumentException();
+        return null;
     }
     
     public int sectionSize(){
