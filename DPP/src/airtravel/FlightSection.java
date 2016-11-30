@@ -24,10 +24,13 @@ public class FlightSection {
         	}
 
         	for(int i = 0; i < seatRows; i++){
+        		
+        		char z = 'a';
 
-        		for(char j = 'a'; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
+        		for(int j = 0; j < seatCols; j++){   //not sure if this will work... in theory it will, but...
 
-        			seats.add(new Seat(i, j));
+        			seats.add(new Seat(i, z));
+        			z++;
 
         		}
 
@@ -50,20 +53,36 @@ public class FlightSection {
 
     public boolean hasAvailableSeats(){
 
-        return seats.size()>0;
+        int i = 0;
+        
+        for(Seat s : seats){
+        	
+        	if(!s.isAssigned()){
+        		
+        		i++;
+        		
+        	}
+        	
+        }
+        
+        return i>0;
 
+    }
+    
+    public void bookSeat(int iRow, int iCol, SeatClass iClass){
+    	
+    	for(Seat s : seats){
+    		
+    		s.setAssigned();
+    		
+    	}
+    	
     }
 
     public String toString(){
 
         return "For section " + sClass + " there is " + seats.toString();
 
-    }
-    
-    public void bookSeat(){
-    	
-    
-    	
     }
     
     public String getID(){
