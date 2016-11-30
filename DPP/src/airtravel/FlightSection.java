@@ -23,7 +23,7 @@ public class FlightSection {
         
         	}
 
-        	for(int i = 0; i < seatRows; i++){
+        	for(int i = 1; i <= seatRows; i++){
         		
         		char z = 'a';
 
