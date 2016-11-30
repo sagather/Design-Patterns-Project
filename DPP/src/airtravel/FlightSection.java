@@ -39,6 +39,8 @@ public class FlightSection {
 			this.airline = iAirline;
 			this.flightNumber = iFlightNumber;
 			this.sClass = isClass;
+			this.rows = seatRows;
+			this.cols = seatCols;
 
         	
         }
