@@ -35,5 +35,16 @@ public class Seat {
     	this.assigned = !this.assigned;
     	
     }
+    
+    public int getRow(){
+    	
+    	return this.row;
+    }
+    
+    public char getCol(){
+    	
+    	return this.seat;
+    	
+    }
 
 }
