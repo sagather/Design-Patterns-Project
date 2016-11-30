@@ -8,6 +8,8 @@ public class FlightSection {
 
     private ArrayList<Seat> seats = new ArrayList<Seat>();
     private SeatClass sClass;
+    private int rows;
+    private int cols;
     private String airline;
     private String flightNumber;
 
