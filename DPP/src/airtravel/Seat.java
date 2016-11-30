@@ -1,6 +1,4 @@
-/**
- * Created by Megan Ostby on 11/22/2016.
- */
+//Megan Ostby & Sam Agather
 package airtravel;
 
 public class Seat {

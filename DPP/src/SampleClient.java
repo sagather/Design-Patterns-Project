@@ -1,5 +1,5 @@
 import airtravel.*;
-
+//Megan Ostby & Sam Agather
 public class SampleClient {
 
     /**

@@ -1,8 +1,5 @@
-/**
- * Created by Megan Ostby on 11/22/2016.
- */
 import airtravel.*;
-
+//Megan Ostby & Sam Agather
 import java.util.*;
 
 public class SystemManager

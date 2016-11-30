@@ -1,11 +1,7 @@
-/**
- * Created by Megan Ostby on 11/22/2016.
- */
+//Megan Ostby & Sam Agather
 package airtravel;
 
 import java.util.ArrayList;
-//Test
-//TODO: Megan
 public class Flight {
     private ArrayList<FlightSection> section = new ArrayList<FlightSection>();
     private String ID;
