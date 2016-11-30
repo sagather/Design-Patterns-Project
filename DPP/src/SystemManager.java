@@ -26,25 +26,74 @@ public class SystemManager
                                 throw new IllegalArgumentException("Airport name must be exactly 3 characters long!");
                         }
                         if (!iAirport.matches("[a-zA-Z]+")) {
-        			this.airline = iAirline;
-        			this.flightNumber = iFlightNumber;
-        			this.sClass = isClass;
+                                throw new IllegalArgumentException("Airport name must only contain alphabetic characters. ");
+                        }
 
+                        Airport airport = new Airport(iAirport);
+                        airports.add(airport);
+                }
+                catch (IllegalArgumentException e)
+                {
+                System.out.println("This airport was not created due an issue with the name.");
+                }
+        }
+
+        public void createAirline(String iAirline){
+                try
+                {
+                        if (iAirline.length() > 6) {
+                                throw new IllegalArgumentException("Airline name must be less than 6 characters long!");
+                        }
+                        for(Airline sAirline:airlines)
+                        {
+                                if (sAirline.getName().equals(iAirline)) {
+                                        throw new IllegalArgumentException("Airline name must not be the same as another airline name.");
+                                }
+                        }
+                        Airline airline = new Airline(iAirline);
+                        airlines.add(airline);
+                }
+                catch (IllegalArgumentException e)
+                {
+                        System.out.println("This airline was not created due an issue with the name.");
+                }
+        }
+
+        public void createFlight(String iLine, String iDeparture, String iArrival, int year, int month, int day, String iFlightNumber){
+                Flight flight = new Flight(iLine,iDeparture,iArrival,year,month,day,iFlightNumber);
+                flights.add(flight);
+        }
+
+        public void createSection(String iAirline, String iFlightNumber, int iRow, int iCols, SeatClass iClass){
+
+                this.section = new FlightSection(iAirline, iFlightNumber, iRow, iCols, iClass);
+                for(Flight fly : flights){
+                	
+                	if(fly.getID().equals(iFlightNumber)){
+                		
+                		fly.addFlightSection(section);
+                		
+                	}
+                	
                 }
 
         }
 
-        public Flight findAvailableFlights(String iDeparture, String iArrival){
+        public void findAvailableFlights(String iDeparture, String iArrival){
+        	
+        	System.out.println("\nAvailable Flights: \n");
+        	int i = 0;
         	
         	try{
         	
         		for(Flight flight : flights){
         			
-        			if(iDeparture.equals(flight.getDeparture())){
+        			if(iDeparture.equals(flight.getDepartureCity())){
         			
-        				if(iArrival.equals(flight.getArrival())){
+        				if(iArrival.equals(flight.getArrivalCity())){
         				
-        					return flight;
+        					System.out.println(flight.toString());
+        					i++;
         				
         				}
         			
@@ -52,8 +101,12 @@ public class SystemManager
         		
         		}
         		
-        		throw new IllegalArgumentException();
-        		
+        		if(i == 0){
+        			
+        			throw new IllegalArgumentException();
+        			
+        		}
+
         	}
         	
         	catch(IllegalArgumentException e){
@@ -61,11 +114,13 @@ public class SystemManager
         		System.out.println("There are no flights with the destination and arrival airport combination provided");
         		
         	}
+        	
 
         }
 
         public void bookSeat(String iAirport, String iFlight, SeatClass iClass, int iRow, char iSeat){
-
+        	
+        	
 
         }
 
@@ -95,6 +150,7 @@ public class SystemManager
         		System.out.println(fly.toString());
         		
         	}
+        	
         	
         }
 
