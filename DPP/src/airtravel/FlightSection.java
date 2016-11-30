@@ -107,4 +107,15 @@ public class FlightSection {
     	return this.flightNumber;
     }
 
+    public boolean classCompare(SeatClass iClass){
+    	
+    	if(iClass == sClass){
+    		
+    		return true;
+    	}
+    	
+    	return false;
+    	
+    }
+
 }
