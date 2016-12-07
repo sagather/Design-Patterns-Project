@@ -1,4 +1,6 @@
 import airtravel.*;
+import landtravel.*;
+import seatravel.*;
 //Megan Ostby & Sam Agather
 public class SampleClient {
 
